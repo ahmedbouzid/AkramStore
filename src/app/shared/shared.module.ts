@@ -4,6 +4,7 @@ import { OnlyNumberDirective } from './directives/only-number.directive';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { HeaderComponent } from './layouts/header/header.component';
 import { PageNotFoundComponent } from './layouts/page-not-found/page-not-found.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -15,7 +16,13 @@ import { PageNotFoundComponent } from './layouts/page-not-found/page-not-found.c
     PageNotFoundComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
+  ],
+  exports:[
+    FooterComponent,
+    HeaderComponent,
+    PageNotFoundComponent
   ]
 })
 export class SharedModule { }
