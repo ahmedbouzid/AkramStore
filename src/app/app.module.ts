@@ -8,7 +8,6 @@ import { HomeComponent } from './components/home/home.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { ProductComponent } from './components/product/product.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { OnlyNumberDirective } from './sharedr/directives/only-number.directive';
 
 @NgModule({
   declarations: [
@@ -17,7 +16,6 @@ import { OnlyNumberDirective } from './sharedr/directives/only-number.directive'
     ContactUsComponent,
     ProductComponent,
     UserProfileComponent,
-    OnlyNumberDirective
   ],
   imports: [
     BrowserModule,
