@@ -9,6 +9,9 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
 import { ProductComponent } from './components/product/product.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
+/// downloading module declaration
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +23,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ToastrModule
   ],
   providers: [],
   bootstrap: [AppComponent]
