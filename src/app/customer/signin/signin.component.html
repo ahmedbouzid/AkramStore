@@ -1,1 +1,140 @@
-<p>signin works!</p>
+<div class="auth-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div *ngIf="registreForm" class="col-md-8">
+        <div class="card">
+          <div class="card-header">
+            <h3>Registration</h3>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="signUpForm" (ngSubmit)="onSubmitSignUp()">
+              <div class="form-group ">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" formControlName="name">
+              </div>
+              <div class="form-group ">
+                <label for="mobile">Mobile Number</label>
+                <input type="text" class="form-control" formControlName="mobileNumber">
+              </div>
+              <div class="row">
+                <div class="form-group  col-md-6">
+                  <label for="age">Age</label>
+                  <input type="text" class="form-control" formControlName="age">
+                </div>
+                <div class="form-group  col-md-6">
+                  <label for="dob">Date of Birth</label>
+                  <input type="date" class="form-control" formControlName="dob">
+                </div>
+              </div>
+              <div class="form-group ">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" formControlName="email" placeholder="example@example.com">
+              </div>
+              <div class="row">
+                <div class="form-group ">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" formControlName="password" placeholder="Password">
+                </div>
+              </div>
+              <div class="form-group ">
+                <label for="addressOne">Address</label>
+                <input type="text" class="form-control" formControlName="adresseOne" placeholder="Address Line 1">
+              </div>
+              <div class="form-group ">
+                <input type="text" class="form-control" formControlName="adresseTwo" placeholder="Address Line 2">
+              </div>
+              <div class="row">
+                <div class="form-group  col-md-6">
+                  <label for="city">City</label>
+                  <input type="text" class="form-control" formControlName="city" placeholder="City">
+                </div>
+
+                <div class="form-group  col-md-4">
+                  <label for="zipCode">Zip Code</label>
+                  <input type="text" class="form-control" formControlName="zipCode" placeholder="Zip Code">
+                </div>
+              </div>
+              <div class="form-group ">
+                <label for="language">Language</label>
+                <select name="language" id="selectLanguage" formControlName="language" class="form-control">
+                  <option value="En" selected>English</option>
+                  <option value="Fr">French</option>
+                  <option value="Ar">Arabic</option>
+                </select>
+              </div>
+              <div class="form-group ">
+                <label for="gender">Gender:</label>
+                <div class="form-check form-check-inline">
+                  <input type="radio" name="" class="form-check-inline" formControlName="gender" value="Male">
+                  <label for="male" class="form-check-inline">Male</label>
+                </div>
+                <div class="form-check form-check-inline">
+
+                  <input type="radio" name="" class="form-check-inline" formControlName="gender" value="Female">
+                  <label for="female" class="form-check-inline">Female</label>
+                </div>
+              </div>
+              <div class="form-group ">
+                <label for="aboutYou">Something about you</label>
+                <textarea class="form-control" formControlName="aboutYou" placeholder="......"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="photo">upload Your photo</label>
+                <input type="file" class="form-control" formControlName="uploadPhoto" placeholder="......">
+              </div>
+              <div class="form-group ">
+                <label for="state">State</label>
+                <select name="state" id="inputState" class="form-control" formControlName="state">
+                  <option value="" selected disabled>Choose State...</option>
+                  <option value="ok" >ok</option>
+                  <option value="no" >no</option>
+                  <!-- Add options for states here -->
+                </select>
+              </div>
+              <div class="form-group ">
+                <input type="checkbox" class="form-check-inline" formControlName="agreeTc" >
+                <label for="agreetc" class="text-danger">Terms And Conditions</label>
+              </div>
+              <div class="form-group ">
+                <label for="role">What do you Want</label>
+                <select name="role" id="inputRole" class="form-control" formControlName="role">
+                  <option value="" selected disabled>Choose State...</option>
+                  <option value="seller" >seller</option>
+                  <option value="buyer" >Buyer</option>
+                  <!-- Add options for states here -->
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+            <!-- Login form -->
+            <p class="sim-pointer" routerLink="/customer/signin">Already have an acount</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8" *ngIf="loginForm">
+        <div class="card">
+          <div class="card-header">
+            <h3>Login</h3>
+          </div>
+          <div class="card-body">
+            <form #loginF="ngForm" (ngSubmit)="loginF.valid && onSubmitSignin()" novalidate>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text"  class="form-control" [(ngModel)]="signInFormValue.email" name="email" #email="ngModel" required email placeholder="exemple@exemple.com">
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" [(ngModel)]="signInFormValue.password" name="password" #password="ngModel" minlength="6" togglePassword class="form-control" placeholder="***">
+
+              </div>
+              <div class="form-group">
+                <button class="btn btn-primary"> Login</button>
+              </div>
+            </form>
+            <p class="sim-pointer" routerLink="/customer/sign-up">If you don't have an account please click here To register </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
