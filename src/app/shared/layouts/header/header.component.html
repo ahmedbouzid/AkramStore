@@ -23,19 +23,19 @@
           <a class="nav-link " routerLink="" >About us</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " routerLink="/my-order" >order B</a>
+          <a class="nav-link " routerLink="/my-order" *ngIf="user_role ==='buyer'">order </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " [routerLink]="['/admin/product']" >order All A</a>
+          <a class="nav-link " [routerLink]="['/admin/product']" *ngIf="user_role ==='admin'">>order All </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " [routerLink]="['/customer/seller-product']" >product A</a>
+          <a class="nav-link " [routerLink]="['/customer/seller-product']" *ngIf="user_role ==='seller'">product </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " [routerLink]="['/admin/product']" >All product A</a>
+          <a class="nav-link " [routerLink]="['/admin/product']" *ngIf="user_role ==='admin'">All product </a>
         </li>
         <li class="nav-item">
-        <a class="nav-link "[routerLink]="['/admin/admin-user']" >Users A</a>
+        <a class="nav-link "[routerLink]="['/admin/admin-user']" *ngIf="user_role ==='admin'">Users </a>
       </li>
         <li class="nav-item">
         <a class="nav-link " routerLink="" >Contact Us</a>
@@ -45,19 +45,22 @@
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="!logged_in">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" [routerLink]="['/customer/signin']">Signin</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" [routerLink]="['/customer/sign-up']">Signup</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" [routerLink]="['/my-profile']">User profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" >logout</a>
-        </li>
+
+        </ul>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="logged_in">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" [routerLink]="['/my-profile']">User profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" (click)="logout()" >logout</a>
+          </li>
         </ul>
     </div>
   </div>
