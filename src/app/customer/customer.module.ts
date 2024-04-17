@@ -6,15 +6,17 @@ import { SellerDashboardComponent } from './seller/seller-dashboard/seller-dashb
 import { SigninComponent } from './signin/signin.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductComponent } from '../components/product/product.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BuyerAuthGuardService, SellerAuthGuardService, SellerBuyerAuthGuardLogin } from '../shared/services/auth-guard.service';
 
 
 const routes:Routes = [
-  {path:'signin' , component:SigninComponent},
-  {path:'sign-up' , component:SigninComponent},
-  {path:'seller-dashboard' , component:SellerDashboardComponent},
-  {path:'seller-product' , component:ProductComponent},
-  {path:'buyer-dashboard' , component:BuyerDashboardComponent},
-  {path:'checkout' , component:CheckoutComponent},
+  {path:'signin' ,canActivate:[SellerBuyerAuthGuardLogin], component:SigninComponent},
+  {path:'sign-up' ,canActivate:[SellerBuyerAuthGuardLogin], component:SigninComponent},
+  {path:'seller-dashboard' ,canActivate:[SellerAuthGuardService], component:SellerDashboardComponent},
+  {path:'seller-product' ,canActivate:[SellerAuthGuardService], component:ProductComponent},
+  {path:'buyer-dashboard' ,canActivate:[BuyerAuthGuardService], component:BuyerDashboardComponent},
+  {path:'checkout' ,canActivate:[BuyerAuthGuardService], component:CheckoutComponent},
 ]
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ const routes:Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes) ,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class CustomerModule { }

@@ -11,9 +11,9 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 
 /// downloading module declaration
 import { ToastrModule } from 'ngx-toastr';
-import { SharedModule } from './shared/shared.module';
 import { RouterModule } from '@angular/router';
 
+import { SharedModule } from './shared/shared.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +28,7 @@ import { RouterModule } from '@angular/router';
     BrowserAnimationsModule,
     ToastrModule,
     SharedModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

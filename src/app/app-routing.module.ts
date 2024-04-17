@@ -4,6 +4,7 @@ import { HomeComponent } from './components/home/home.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { PageNotFoundComponent } from './shared/layouts/page-not-found/page-not-found.component';
+import { AdminAuthGuardLogin } from './shared/services/auth-guard.service';
 
 const routes: Routes = [
   {path:'' ,redirectTo:'/' , pathMatch:'full' },
@@ -11,7 +12,7 @@ const routes: Routes = [
   {path:'my-profile' , component:UserProfileComponent} ,
   {path:'contact-us' , component:ContactUsComponent},
   // Admin Module
-  {path:'admin' ,loadChildren:()=> import('./admin/admin.module').then(m => m.AdminModule)
+  {path:'admin' ,canActivate:[AdminAuthGuardLogin],loadChildren:()=> import('./admin/admin.module').then(m => m.AdminModule)
   },
   // Load Customer Module
   {path:'customer' , loadChildren:() => import('./customer/customer.module').then(m => m.CustomerModule)
