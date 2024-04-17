@@ -12,7 +12,7 @@ const routes: Routes = [
   {path:'my-profile' , component:UserProfileComponent} ,
   {path:'contact-us' , component:ContactUsComponent},
   // Admin Module
-  {path:'admin' ,canActivate:[AdminAuthGuardLogin],loadChildren:()=> import('./admin/admin.module').then(m => m.AdminModule)
+  {path:'admin' ,loadChildren:()=> import('./admin/admin.module').then(m => m.AdminModule)
   },
   // Load Customer Module
   {path:'customer' , loadChildren:() => import('./customer/customer.module').then(m => m.CustomerModule)
