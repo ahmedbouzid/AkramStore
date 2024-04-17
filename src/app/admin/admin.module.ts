@@ -7,6 +7,8 @@ import { Routes } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { ProductComponent } from '../components/product/product.component';
 import { AdminAuthGuardService } from '../shared/services/auth-guard.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 // admin routes
@@ -25,7 +27,10 @@ const routes:Routes = [
   ],
   imports: [
     CommonModule ,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes) ,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class AdminModule { }
