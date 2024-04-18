@@ -14,6 +14,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { RouterModule } from '@angular/router';
 
 import { SharedModule } from './shared/shared.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,11 @@ import { SharedModule } from './shared/shared.module';
     BrowserAnimationsModule,
     ToastrModule,
     SharedModule,
-    
+    FormsModule ,
+    ReactiveFormsModule,
+    HttpClientModule
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
