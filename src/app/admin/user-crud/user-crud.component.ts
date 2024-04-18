@@ -102,7 +102,7 @@ export class UserCrudComponent implements OnInit {
     this.adminService.oneUser(user_id).subscribe(
       (data) => {
         this.upload_file_name = data.uploadPhoto;
-        this.addEditUserForm.patchValue(data); // Update form values using patchValue
+        this.addEditUserForm.patchValue({...data ,uploadPhoto: this.upload_file_name || ''} ); // Update form values using patchValue
       },
       (error) => {
         console.log('Error:', error);
